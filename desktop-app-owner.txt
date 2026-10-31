@@ -1,0 +1,3 @@
+Knowledge Health desktop bundle
+io.github.gmperkinsmba.knowledge-health
+local-build-owner-marker-v1

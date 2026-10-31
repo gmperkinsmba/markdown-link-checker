@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+*.sqlite*
+*.db
+exports/
+*.csv
+.DS_Store
+build/
+dist/
+.build/
+graphify-out/
+
+.desktop-venv/
+/work/

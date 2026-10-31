@@ -1,0 +1,10 @@
+"use strict";
+const assert = require("node:assert/strict");
+const {safeCell, toCsv} = require("../csv.js");
+assert.equal(safeCell("=SUM(1,2)"), "\"'=SUM(1,2)\"");
+assert.equal(safeCell("\t=HYPERLINK(\"https://bad\")"), "\"'\t=HYPERLINK(\"\"https://bad\"\")\"");
+assert.equal(safeCell("\r@evil"), "\"'\r@evil\"");
+assert.equal(safeCell("+cmd"), "\"'+cmd\"");
+assert.equal(safeCell("001234"), "\"001234\"");
+assert.equal(toCsv([["rule", "source"], ["x", "=1"]]), "\"rule\",\"source\"\r\n\"x\",\"'=1\"");
+console.log("6 CSV export safety assertions passed");

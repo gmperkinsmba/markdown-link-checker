@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101312"><title>Markdown Link Checker</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/csv.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="Markdown Link Checker home"><span class="mark">M</span><span>MARKDOWN LINK CHECKER</span></a><div class="top-actions"><div class="local-note"><i></i> LOCAL READ ONLY</div><button id="settingsOpen" class="top-settings" type="button">Settings</button></div></header>
+  <main>
+    <section class="hero"><div class="eyebrow">DOCUMENTATION CHECK · <span id="rootName">FOLDER SET AT STARTUP</span></div><h1>Markdown Link Checker</h1><p>Check Markdown links, entrypoints, and tracked paths in one selected folder.</p></section>
+    <section class="scan-card" aria-labelledby="scanHeading">
+      <div class="scan-copy"><div class="eyebrow">CONFIGURED ENTRYPOINT</div><h2 id="scanHeading"><code id="entrypoint">Set at startup</code></h2><p>The folder is chosen when the server starts. This tool reads files and does not change them.</p></div>
+      <button id="scan" class="primary" type="button"><span class="button-icon" aria-hidden="true">↻</span> Scan folder</button>
+    </section>
+    <section class="results" aria-live="polite" aria-busy="false">
+      <div class="results-head"><div><div class="eyebrow">SCAN FINDINGS</div><h2 id="resultTitle">Ready to scan</h2></div><div class="result-actions"><label class="search"><span class="sr-only">Filter findings</span><input id="filter" type="search" placeholder="Filter findings" disabled></label><button id="export" class="outline" type="button" disabled>Export review CSV</button></div></div>
+      <div id="summary" class="summary-row" hidden></div>
+      <div id="limitNote" class="limit-note">Unknown checks stay marked unknown until you set those rules.</div>
+      <div id="findingList" class="finding-list"><div class="empty-state"><span class="empty-mark">—</span><p>Run a scan to see each finding with its rule and source line.</p></div></div>
+    </section>
+    <footer><span>Source files stay in the selected folder.</span><span>Markdown links · Git tracking · privacy paths</span></footer>
+  </main>
+  <dialog id="settingsDialog" aria-labelledby="settingsTitle"><div class="dialog-head"><div><div class="eyebrow">SCAN CONFIGURATION</div><h2 id="settingsTitle">Settings</h2></div><button id="settingsClose" class="outline" type="button">Close</button></div><p class="dialog-note">These values come from the server startup flags. The browser cannot change the selected folder.</p><dl id="settingsList" class="settings-list"><div><dt>Configuration</dt><dd>Loading settings</dd></div></dl></dialog>
+  <dialog id="sourceDialog" aria-labelledby="sourceTitle"><div class="dialog-head"><div><div class="eyebrow">SOURCE CONTEXT</div><h2 id="sourceTitle">Finding source</h2></div><button id="sourceClose" class="outline" type="button">Close</button></div><p id="sourceNote" class="dialog-note"></p><pre id="sourceContext" class="source-context"></pre></dialog>
+</body>
+</html>
